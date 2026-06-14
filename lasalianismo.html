@@ -1,0 +1,3578 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lasalianismo em Ação — Transformando Vidas</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --blue: #003366;
+        --blue-mid: #0a4fa0;
+        --blue-light: #1a6bbf;
+        --gold: #d4af37;
+        --gold-light: #f0d060;
+        --cream: #fdfaf4;
+        --gray: #f5f7fa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #1a1a2e;
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(0, 51, 102, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        transition: all 0.3s;
+      }
+
+      nav.scrolled {
+        background: rgba(0, 20, 50, 0.99);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        height: 68px;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .nav-logo-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gold);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-logo-icon i {
+        color: var(--blue);
+        font-size: 1.1rem;
+      }
+
+      .nav-logo-text {
+        font-family: "Playfair Display", serif;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .nav-logo-text span {
+        color: var(--gold);
+        font-size: 0.7rem;
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        background: var(--gold);
+        color: var(--blue) !important;
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-weight: 700 !important;
+        font-size: 0.8rem !important;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s !important;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+      }
+
+      .nav-cta::after {
+        display: none !important;
+      }
+
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .nav-hamburger span {
+        width: 24px;
+        height: 2px;
+        background: #fff;
+        transition: all 0.3s;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #001a3d 0%,
+          #003366 40%,
+          #0a4fa0 80%,
+          #1a6bbf 100%
+        );
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.15);
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        padding-top: 80px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(212, 175, 55, 0.15);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        margin-bottom: 1.5rem;
+        color: var(--gold);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        animation: fadeDown 0.8s ease forwards;
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        color: #fff;
+        line-height: 1.05;
+        font-weight: 800;
+        animation: fadeUp 0.9s ease forwards;
+      }
+
+      .hero-title .gold {
+        color: var(--gold);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 620px;
+        line-height: 1.7;
+        margin-top: 1.5rem;
+        font-weight: 400;
+        animation: fadeUp 1s ease 0.15s forwards;
+        opacity: 0;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2.5rem;
+        animation: fadeUp 1s ease 0.3s forwards;
+        opacity: 0;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--blue);
+        padding: 0.9rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        background: var(--gold-light);
+      }
+
+      .btn-secondary {
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        padding: 0.9rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+        backdrop-filter: blur(4px);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+        animation: fadeUp 1s ease 0.45s forwards;
+        opacity: 0;
+      }
+
+      .hero-stat .num {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .hero-stat .lbl {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .hero-scroll {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.75rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(-8px);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* SECTION BASE */
+      section {
+        padding: 6rem 2rem;
+      }
+
+      .section-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--blue);
+        line-height: 1.2;
+        font-weight: 800;
+      }
+
+      .section-title .gold {
+        color: var(--gold);
+      }
+
+      .section-sub {
+        color: #64748b;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 600px;
+        margin-top: 1rem;
+      }
+
+      /* DIVIDER */
+      .gold-line {
+        width: 60px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 2px;
+        margin: 1rem 0 2rem;
+      }
+
+      /* QUEM FOI — TIMELINE */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--gold), var(--blue));
+        border-radius: 2px;
+      }
+
+      .tl-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+        padding-left: 2rem;
+      }
+
+      .tl-dot {
+        position: absolute;
+        left: -2.3rem;
+        top: 0.2rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 3px solid #fff;
+        box-shadow: 0 0 0 3px var(--gold);
+        transition: all 0.3s;
+        cursor: default;
+      }
+
+      .tl-item:hover .tl-dot {
+        transform: scale(1.5);
+        box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.3);
+      }
+
+      .tl-year {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--gold);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.25rem;
+      }
+
+      .tl-title {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--blue);
+        margin-bottom: 0.4rem;
+      }
+
+      .tl-desc {
+        font-size: 0.9rem;
+        color: #64748b;
+        line-height: 1.6;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.5s ease,
+          opacity 0.4s;
+        opacity: 0;
+      }
+
+      .tl-item:hover .tl-desc {
+        max-height: 200px;
+        opacity: 1;
+      }
+
+      /* VALORES CARDS */
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .value-card {
+        background: #fff;
+        border: 1px solid rgba(0, 51, 102, 0.1);
+        border-radius: 20px;
+        padding: 2rem 1.75rem;
+        cursor: pointer;
+        transition: all 0.35s;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--blue), var(--blue-light));
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+
+      .value-card:hover,
+      .value-card.active {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0, 51, 102, 0.2);
+      }
+
+      .value-card:hover::before,
+      .value-card.active::before {
+        opacity: 1;
+      }
+
+      .value-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .value-card .icon-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: rgba(0, 51, 102, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        transition: background 0.35s;
+      }
+
+      .value-card:hover .icon-wrap,
+      .value-card.active .icon-wrap {
+        background: rgba(212, 175, 55, 0.25);
+      }
+
+      .value-card .icon-wrap i {
+        font-size: 1.4rem;
+        color: var(--blue);
+        transition: color 0.35s;
+      }
+
+      .value-card:hover .icon-wrap i,
+      .value-card.active .icon-wrap i {
+        color: var(--gold);
+      }
+
+      .value-card h3 {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--blue);
+        margin-bottom: 0.5rem;
+        transition: color 0.35s;
+      }
+
+      .value-card:hover h3,
+      .value-card.active h3 {
+        color: #fff;
+      }
+
+      .value-card p {
+        font-size: 0.875rem;
+        color: #64748b;
+        line-height: 1.6;
+        transition: color 0.35s;
+      }
+
+      .value-card:hover p,
+      .value-card.active p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .value-card .extra {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+      }
+
+      .value-card.active .extra {
+        max-height: 200px;
+      }
+
+      .value-card .extra p {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+      }
+
+      /* PROJETOS */
+      .projetos-bg {
+        background: var(--gray);
+      }
+
+      .projetos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.75rem;
+        margin-top: 3rem;
+      }
+
+      .projeto-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.35s;
+        position: relative;
+      }
+
+      .projeto-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 60px rgba(0, 51, 102, 0.2);
+      }
+
+      .projeto-img {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .projeto-img .bg-icon {
+        font-size: 5rem;
+        opacity: 0.15;
+        color: #fff;
+      }
+
+      .projeto-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--gold);
+        color: var(--blue);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.3rem 0.75rem;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .projeto-body {
+        padding: 1.75rem;
+      }
+
+      .projeto-body h3 {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--blue);
+        margin-bottom: 0.75rem;
+      }
+
+      .projeto-body p {
+        font-size: 0.875rem;
+        color: #64748b;
+        line-height: 1.6;
+      }
+
+      .projeto-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f1f5f9;
+      }
+
+      .projeto-meta .impact {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+
+      .projeto-meta a {
+        font-size: 0.8rem;
+        color: var(--blue-light);
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: gap 0.2s;
+      }
+
+      .projeto-meta a:hover {
+        gap: 0.6rem;
+      }
+
+      /* IMPACTO */
+      .impacto-bg {
+        background: linear-gradient(
+          135deg,
+          var(--blue) 0%,
+          #0a4fa0 60%,
+          #1a6bbf 100%
+        );
+      }
+
+      .counters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .counter-card {
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .counter-card .icon {
+        font-size: 2rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .counter-num {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1;
+      }
+
+      .counter-plus {
+        color: var(--gold);
+      }
+
+      .counter-card .lbl {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        font-weight: 500;
+      }
+
+      /* MAPA */
+      .map-container {
+        background: linear-gradient(135deg, #001a3d 0%, #003366 100%);
+        border-radius: 24px;
+        overflow: hidden;
+        margin-top: 3rem;
+        position: relative;
+      }
+
+      .world-map-wrap {
+        position: relative;
+        padding: 2rem;
+      }
+
+      svg.world-map {
+        width: 100%;
+        height: auto;
+      }
+
+      .country-info {
+        background: rgba(212, 175, 55, 0.15);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        color: #fff;
+        display: none;
+      }
+
+      .country-info.active {
+        display: block;
+        animation: fadeUp 0.4s ease forwards;
+      }
+
+      .country-info h4 {
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .map-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .map-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      /* DEPOIMENTOS */
+      .depo-bg {
+        background: var(--cream);
+      }
+
+      .swiper-depo {
+        padding: 1rem 0 3rem !important;
+      }
+
+      .depo-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid var(--gold);
+        height: auto;
+      }
+
+      .depo-quote {
+        font-size: 3rem;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        font-family: Georgia, serif;
+      }
+
+      .depo-text {
+        color: #374151;
+        font-size: 1rem;
+        line-height: 1.7;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .depo-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .depo-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      .depo-name {
+        font-weight: 700;
+        color: var(--blue);
+        font-size: 0.95rem;
+      }
+
+      .depo-role {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: 0.1rem;
+      }
+
+      .swiper-pagination-bullet {
+        background: var(--blue) !important;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: var(--gold) !important;
+      }
+
+      /* QUIZ */
+      .quiz-card {
+        background: #fff;
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: 0 10px 50px rgba(0, 51, 102, 0.12);
+        max-width: 700px;
+        margin: 3rem auto 0;
+      }
+
+      .quiz-progress-bar {
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+
+      .quiz-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--blue), var(--gold));
+        border-radius: 3px;
+        transition: width 0.5s ease;
+      }
+
+      .quiz-q {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--blue);
+        margin-bottom: 1.75rem;
+        line-height: 1.5;
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .quiz-opt {
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        font-size: 0.95rem;
+        color: #374151;
+        transition: all 0.2s;
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .quiz-opt:hover {
+        border-color: var(--blue-light);
+        background: #eff6ff;
+      }
+
+      .quiz-opt.correct {
+        border-color: #10b981;
+        background: #ecfdf5;
+        color: #065f46;
+      }
+
+      .quiz-opt.wrong {
+        border-color: #ef4444;
+        background: #fef2f2;
+        color: #7f1d1d;
+      }
+
+      .quiz-opt .opt-letter {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+        transition: background 0.2s;
+      }
+
+      .quiz-opt.correct .opt-letter {
+        background: #10b981;
+        color: #fff;
+      }
+
+      .quiz-opt.wrong .opt-letter {
+        background: #ef4444;
+        color: #fff;
+      }
+
+      .quiz-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      .quiz-counter {
+        font-size: 0.85rem;
+        color: #64748b;
+      }
+
+      .btn-quiz {
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+        font-family: "Inter", sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-quiz:hover {
+        background: var(--blue-light);
+        transform: translateY(-1px);
+      }
+
+      .quiz-result {
+        text-align: center;
+        display: none;
+      }
+
+      .quiz-result .score-circle {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--blue), var(--gold));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: 800;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3);
+      }
+
+      .quiz-result .score-circle span {
+        font-size: 0.8rem;
+        font-weight: 400;
+        opacity: 0.8;
+      }
+
+      .certificate {
+        background: linear-gradient(135deg, var(--blue) 0%, #0a4fa0 100%);
+        border: 2px solid var(--gold);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-top: 1.5rem;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .certificate::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(212, 175, 55, 0.08) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .certificate .cert-title {
+        color: var(--gold);
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .certificate .cert-sub {
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+
+      /* GALERIA */
+      .gallery-bg {
+        background: var(--gray);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 3rem;
+      }
+
+      .gallery-item {
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        aspect-ratio: 1;
+        position: relative;
+        transition: all 0.35s;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+        z-index: 1;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .gallery-item .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 51, 102, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        color: #fff;
+      }
+
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .gallery-item .overlay i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .gallery-item .overlay span {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* UNILASALLE */
+      .uni-bg {
+        background: var(--blue);
+      }
+
+      .uni-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .uni-card {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s;
+      }
+
+      .uni-card:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: rgba(212, 175, 55, 0.5);
+        transform: translateY(-4px);
+      }
+
+      .uni-card i {
+        font-size: 1.75rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .uni-card h3 {
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .uni-card p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #000d1a;
+        padding: 4rem 2rem 2rem;
+      }
+
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin-top: 1rem;
+        max-width: 280px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .footer-social a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+      }
+
+      .footer-social a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      .footer-col h4 {
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-col a {
+        display: block;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        transition: color 0.2s;
+      }
+
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: gap;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.8rem;
+      }
+
+      .footer-quote {
+        text-align: center;
+        padding: 3rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .footer-quote p {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1rem, 2.5vw, 1.4rem);
+        color: var(--gold);
+        font-style: italic;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* LIGHTBOX */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-inner {
+        max-width: 800px;
+        width: 100%;
+        background: var(--blue);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .lightbox-img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+
+      .lightbox-close:hover {
+        background: var(--gold);
+        color: var(--blue);
+      }
+
+      .lightbox-caption {
+        padding: 1.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      /* MOBILE NAV */
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--blue);
+        padding: 1.5rem 2rem;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .nav-hamburger {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 4rem 1.25rem;
+        }
+
+        .hero-content {
+          padding-top: 90px;
+        }
+
+        .hero-stats {
+          gap: 1.5rem;
+        }
+
+        .quiz-card {
+          padding: 2rem 1.5rem;
+        }
+      }
+
+      /* MODAL (project detail) */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .modal-overlay.open {
+        display: flex;
+      }
+
+      .modal-box {
+        background: #fff;
+        border-radius: 24px;
+        max-width: 560px;
+        width: 100%;
+        padding: 2.5rem;
+        position: relative;
+        animation: fadeUp 0.4s ease;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #64748b;
+      }
+
+      .modal-box h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        color: var(--blue);
+        margin-bottom: 0.75rem;
+      }
+
+      .modal-box p {
+        color: #64748b;
+        line-height: 1.7;
+      }
+
+      /* BACK TO TOP */
+      #back-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--gold);
+        color: var(--blue);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        z-index: 500;
+        border: none;
+      }
+
+      #back-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #back-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lsblue: "#003366",
+              lsgold: "#D4AF37",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <div class="nav-logo-icon"><i class="fa-solid fa-cross"></i></div>
+          <div class="nav-logo-text">Lasalianismo<span>em ação</span></div>
+        </a>
+        <div class="nav-links">
+          <a href="#historia">História</a>
+          <a href="#valores">Valores</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#impacto">Impacto</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#unilasalle" class="nav-cta">UniLaSalle</a>
+        </div>
+        <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#historia" onclick="toggleMenu()">História</a>
+        <a href="#valores" onclick="toggleMenu()">Valores</a>
+        <a href="#projetos" onclick="toggleMenu()">Projetos</a>
+        <a href="#impacto" onclick="toggleMenu()">Impacto</a>
+        <a href="#mapa" onclick="toggleMenu()">Mapa</a>
+        <a href="#quiz" onclick="toggleMenu()">Quiz</a>
+        <a href="#unilasalle" onclick="toggleMenu()">UniLaSalle</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content w-full">
+        <div class="hero-badge">
+          <i class="fa-solid fa-star"></i> Educação · Fraternidade ·
+          Transformação
+        </div>
+        <h1 class="hero-title">
+          Lasalianismo<br /><span class="gold">em Ação</span>
+        </h1>
+        <p class="hero-subtitle">
+          Educação, fraternidade e transformação social para construir um futuro
+          melhor — os princípios de São João Batista de La Salle vivos em cada
+          comunidade.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projetos" class="btn-primary"
+            ><i class="fa-solid fa-rocket"></i> Conheça os Projetos</a
+          >
+          <a href="#historia" class="btn-secondary"
+            ><i class="fa-solid fa-compass"></i> Explore Nossa Missão</a
+          >
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">80+</div>
+            <div class="lbl">Países atendidos</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">5k+</div>
+            <div class="lbl">Vidas transformadas</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">370+</div>
+            <div class="lbl">Anos de legado</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">100+</div>
+            <div class="lbl">Voluntários ativos</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Rolar para baixo</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- QUEM FOI -->
+    <section id="historia">
+      <div class="section-inner">
+        <div class="flex flex-col lg:flex-row gap-16 items-start">
+          <div class="lg:w-2/5" data-aos="fade-right">
+            <div class="section-label">
+              <i class="fa-solid fa-book-open mr-2"></i>Linha do Tempo
+            </div>
+            <h2 class="section-title">
+              Quem foi João Batista<br />de <span class="gold">La Salle?</span>
+            </h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              Nascido em Reims, França, em 1651, La Salle dedicou sua vida a
+              criar escolas gratuitas para os filhos dos trabalhadores e
+              artesãos, revolucionando a educação de sua época.
+            </p>
+            <div
+              style="
+                margin-top: 2rem;
+                background: linear-gradient(135deg, var(--blue), #0a4fa0);
+                border-radius: 20px;
+                padding: 2rem;
+                color: #fff;
+              "
+            >
+              <i
+                class="fa-solid fa-quote-left"
+                style="
+                  color: var(--gold);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.75rem;
+                  display: block;
+                "
+              ></i>
+              <p
+                style="
+                  font-style: italic;
+                  line-height: 1.7;
+                  color: rgba(255, 255, 255, 0.85);
+                "
+              >
+                "A vocação para o ensino é uma missão sagrada. Educar não é
+                apenas transmitir conhecimento, mas transformar almas."
+              </p>
+              <p
+                style="
+                  margin-top: 0.75rem;
+                  color: var(--gold);
+                  font-size: 0.85rem;
+                  font-weight: 700;
+                "
+              >
+                — João Batista de La Salle
+              </p>
+            </div>
+          </div>
+          <div class="lg:w-3/5" data-aos="fade-left">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1651</div>
+                <div class="tl-title">Nascimento em Reims, França</div>
+                <div class="tl-desc">
+                  João Batista de La Salle nasceu em 30 de abril de 1651, em uma
+                  família nobre e abastada de Reims. Sua origem privilegiada
+                  contrasta com sua futura dedicação aos mais pobres.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1669</div>
+                <div class="tl-title">Formação Religiosa</div>
+                <div class="tl-desc">
+                  Ingressa no seminário de Saint-Sulpice em Paris, onde
+                  aprofunda sua fé e desenvolve a convicção de que a educação é
+                  um caminho espiritual e transformador.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1679</div>
+                <div class="tl-title">Contato com os Professores Pobres</div>
+                <div class="tl-desc">
+                  Conhece Adrien Nyel e começa a se envolver com as escolas para
+                  crianças pobres em Reims, dando início a uma transformação
+                  radical em sua vida e missão.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1680</div>
+                <div class="tl-title">
+                  Fundação dos Irmãos das Escolas Cristãs
+                </div>
+                <div class="tl-desc">
+                  Cria a congregação religiosa dedicada exclusivamente ao
+                  ensino, algo inédito na época. Os irmãos ensinavam juntos, em
+                  comunidade, partilhando ideais e métodos.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1695</div>
+                <div class="tl-title">Defesa da Educação Gratuita</div>
+                <div class="tl-desc">
+                  Enfrenta oposição dos professores particulares que cobravam
+                  pelo ensino. La Salle defende o acesso gratuito à educação
+                  para todas as crianças, especialmente as mais pobres.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1719</div>
+                <div class="tl-title">Métodos Pedagógicos Revolucionários</div>
+                <div class="tl-desc">
+                  Introduz o ensino simultâneo (toda a classe aprende junto), o
+                  ensino em língua vernácula, e a formação de professores —
+                  inovações que influenciam a educação até hoje.
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1719 → hoje</div>
+                <div class="tl-title">Legado Mundial em mais de 80 países</div>
+                <div class="tl-desc">
+                  Canonizado em 1900 e proclamado Patrono dos Educadores em 1950
+                  por Pio XII. Hoje, mais de um milhão de estudantes são
+                  atendidos pela rede lassalista em todo o mundo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALORES -->
+    <section id="valores" style="background: var(--gray)">
+      <div class="section-inner">
+        <div data-aos="fade-up">
+          <div class="section-label">
+            <i class="fa-solid fa-heart mr-2"></i>Pilares Fundamentais
+          </div>
+          <h2 class="section-title">
+            Valores <span class="gold">Lassalistas</span>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="section-sub">
+            Os princípios que guiam cada ação, projeto e comunidade dentro do
+            espírito lassalista. Clique em cada card para ver exemplos práticos.
+          </p>
+        </div>
+        <div class="values-grid">
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="0"
+          >
+            <div class="icon-wrap">
+              <i class="fa-solid fa-place-of-worship"></i>
+            </div>
+            <h3>Fé</h3>
+            <p>
+              Fundamento espiritual que orienta todas as ações educativas e
+              sociais.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Momentos de reflexão e espiritualidade
+                integrados à rotina das oficinas, fortalecendo o caráter e os
+                valores morais dos participantes.
+              </p>
+            </div>
+          </div>
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="80"
+          >
+            <div class="icon-wrap">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <h3>Fraternidade</h3>
+            <p>
+              União e cuidado mútuo entre todos os membros da comunidade
+              educativa.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Projetos colaborativos onde alunos veteranos
+                mentoram novos participantes, criando redes de apoio e
+                solidariedade.
+              </p>
+            </div>
+          </div>
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="160"
+          >
+            <div class="icon-wrap">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <h3>Serviço</h3>
+            <p>
+              Dedicação ao bem-estar do próximo como expressão concreta do amor.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Campanhas de voluntariado em comunidades
+                carentes, arrecadação de alimentos e ações de saúde preventiva
+                gratuitas.
+              </p>
+            </div>
+          </div>
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="240"
+          >
+            <div class="icon-wrap">
+              <i class="fa-solid fa-universal-access"></i>
+            </div>
+            <h3>Inclusão</h3>
+            <p>
+              Acolhimento de todos, sem distinção de origem, credo ou condição
+              social.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Adaptação de materiais didáticos para PCD,
+                intérpretes de Libras nas oficinas e rampas de acesso em todos
+                os espaços.
+              </p>
+            </div>
+          </div>
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="320"
+          >
+            <div class="icon-wrap">
+              <i class="fa-solid fa-hands-helping"></i>
+            </div>
+            <h3>Solidariedade</h3>
+            <p>
+              Partilha de recursos e talentos para transformar realidades
+              coletivamente.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Bancos comunitários de materiais escolares,
+                empréstimo de equipamentos e mutirões de construção de espaços
+                educativos.
+              </p>
+            </div>
+          </div>
+          <div
+            class="value-card"
+            onclick="toggleValue(this)"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-wrap"><i class="fa-solid fa-book"></i></div>
+            <h3>Educação para Todos</h3>
+            <p>
+              O direito à educação de qualidade como fundamento da dignidade
+              humana.
+            </p>
+            <div class="extra">
+              <p>
+                Exemplo prático: Aulas gratuitas de reforço escolar,
+                alfabetização de adultos e cursos profissionalizantes sem custo
+                para comunidades vulneráveis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="projetos-bg">
+      <div class="section-inner">
+        <div data-aos="fade-up">
+          <div class="section-label">
+            <i class="fa-solid fa-seedling mr-2"></i>Transformando Realidades
+          </div>
+          <h2 class="section-title">
+            Projetos <span class="gold">Sociais</span>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="section-sub">
+            Iniciativas concretas que levam educação, profissionalização e
+            dignidade a quem mais precisa.
+          </p>
+        </div>
+        <div class="projetos-grid">
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="0">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #003366, #1a6bbf)"
+            >
+              <i class="fa-solid fa-laptop-code bg-icon"></i>
+              <div class="projeto-badge">Tecnologia</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i
+                  class="fa-solid fa-laptop-code mr-2"
+                  style="color: var(--gold)"
+                ></i
+                >Oficina de Informática
+              </h3>
+              <p>
+                Capacitação tecnológica para jovens em situação de
+                vulnerabilidade — do básico ao avançado, preparando para o
+                mercado digital.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 1.200 jovens
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Oficina de Informática',
+                      'Capacitação em informática básica, intermediária e avançada, incluindo criação de planilhas, edição de textos, navegação segura na internet e introdução à programação. Os participantes recebem certificado reconhecido pelo mercado de trabalho.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="80">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #065f46, #059669)"
+            >
+              <i class="fa-solid fa-chalkboard-teacher bg-icon"></i>
+              <div class="projeto-badge">Educação</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i
+                  class="fa-solid fa-chalkboard-teacher mr-2"
+                  style="color: var(--gold)"
+                ></i
+                >Reforço Escolar
+              </h3>
+              <p>
+                Apoio educacional personalizado para crianças e adolescentes com
+                dificuldades de aprendizagem, evitando a evasão escolar.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 850 alunos
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Reforço Escolar',
+                      'Aulas de reforço em Matemática, Língua Portuguesa, Ciências e outras disciplinas, ministradas por voluntários universitários. O projeto atende crianças do 1º ao 9º ano, com material didático gratuito fornecido pelas instituições lassalistas parceiras.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="160">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #7c3aed, #a855f7)"
+            >
+              <i class="fa-solid fa-tools bg-icon"></i>
+              <div class="projeto-badge">Profissionalização</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i class="fa-solid fa-tools mr-2" style="color: var(--gold)"></i
+                >Oficinas Profissionalizantes
+              </h3>
+              <p>
+                Cursos de costura, marcenaria, culinária, elétrica e outros
+                ofícios para preparação qualificada ao mercado de trabalho.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 680 pessoas
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Oficinas Profissionalizantes',
+                      'Cursos com duração de 3 a 6 meses em áreas como corte e costura, marcenaria, gastronomia, elétrica residencial e design gráfico. Os participantes recebem ferramentas de início e suporte para abertura do próprio negócio.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="240">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #c2410c, #ea580c)"
+            >
+              <i class="fa-solid fa-hands-holding-circle bg-icon"></i>
+              <div class="projeto-badge">Comunidade</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i
+                  class="fa-solid fa-hands-holding-circle mr-2"
+                  style="color: var(--gold)"
+                ></i
+                >Ações Comunitárias
+              </h3>
+              <p>
+                Campanhas solidárias de arrecadação, mutirões de limpeza, ações
+                de saúde e voluntariado ativo em periferias.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 2.100 atendidos
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Ações Comunitárias',
+                      'Eventos mensais de saúde com triagem, vacinação e orientações médicas; mutirões de limpeza e arborização; arrecadação de alimentos, roupas e materiais escolares. Envolvimento de toda a comunidade acadêmica.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="320">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #0e7490, #06b6d4)"
+            >
+              <i class="fa-solid fa-wifi bg-icon"></i>
+              <div class="projeto-badge">Inclusão Digital</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i class="fa-solid fa-wifi mr-2" style="color: var(--gold)"></i
+                >Inclusão Digital
+              </h3>
+              <p>
+                Acesso gratuito à internet, dispositivos recondicionados e
+                letramento digital para comunidades sem acesso à tecnologia.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 500 famílias
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Inclusão Digital',
+                      'Doação e recondicionamento de computadores e tablets; instalação de pontos de Wi-Fi em escolas públicas parceiras; oficinas de segurança digital para adolescentes e letramento digital para idosos.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card" data-aos="fade-up" data-aos-delay="400">
+            <div
+              class="projeto-img"
+              style="background: linear-gradient(135deg, #be185d, #ec4899)"
+            >
+              <i class="fa-solid fa-seedling bg-icon"></i>
+              <div class="projeto-badge">Formação Humana</div>
+            </div>
+            <div class="projeto-body">
+              <h3>
+                <i
+                  class="fa-solid fa-seedling mr-2"
+                  style="color: var(--gold)"
+                ></i
+                >Desenvolvimento Humano
+              </h3>
+              <p>
+                Formação ética e cidadã com rodas de diálogo, mediação de
+                conflitos e educação para a paz e os direitos humanos.
+              </p>
+              <div class="projeto-meta">
+                <div class="impact">
+                  <i class="fa-solid fa-users"></i> 320 jovens
+                </div>
+                <a
+                  href="#"
+                  onclick="
+                    openModal(
+                      'Desenvolvimento Humano',
+                      'Programas de mentoria individual, círculos de paz, teatro do oprimido, educação em direitos humanos e formação de lideranças juvenis. O objetivo é construir cidadãos conscientes, empáticos e agentes de transformação.',
+                    );
+                    return false;
+                  "
+                  >Saiba Mais <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section id="impacto" class="impacto-bg">
+      <div class="section-inner">
+        <div data-aos="fade-up" style="text-align: center">
+          <div
+            class="section-label"
+            style="
+              color: var(--gold-light);
+              justify-content: center;
+              display: flex;
+            "
+          >
+            <i class="fa-solid fa-chart-line mr-2"></i>Nosso Alcance
+          </div>
+          <h2 class="section-title" style="color: #fff; text-align: center">
+            Impacto <span class="gold">Social</span>
+          </h2>
+          <div class="gold-line" style="margin: 1rem auto 0"></div>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.7);
+              margin-top: 1rem;
+              font-size: 1.05rem;
+            "
+          >
+            Números que representam vidas transformadas pela educação e pelo
+            serviço lassalista.
+          </p>
+        </div>
+        <div class="counters-grid">
+          <div class="counter-card" data-aos="zoom-in" data-aos-delay="0">
+            <div class="icon"><i class="fa-solid fa-users"></i></div>
+            <div class="counter-num">
+              <span class="count-up" data-target="5000">0</span
+              ><span class="counter-plus">+</span>
+            </div>
+            <div class="lbl">Pessoas Beneficiadas</div>
+          </div>
+          <div class="counter-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon"><i class="fa-solid fa-chalkboard"></i></div>
+            <div class="counter-num">
+              <span class="count-up" data-target="300">0</span
+              ><span class="counter-plus">+</span>
+            </div>
+            <div class="lbl">Oficinas Realizadas</div>
+          </div>
+          <div class="counter-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div class="counter-num">
+              <span class="count-up" data-target="100">0</span
+              ><span class="counter-plus">+</span>
+            </div>
+            <div class="lbl">Voluntários Ativos</div>
+          </div>
+          <div class="counter-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+            <div class="counter-num">
+              <span class="count-up" data-target="50">0</span
+              ><span class="counter-plus">+</span>
+            </div>
+            <div class="lbl">Comunidades Atendidas</div>
+          </div>
+          <div class="counter-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon"><i class="fa-solid fa-globe"></i></div>
+            <div class="counter-num">
+              <span class="count-up" data-target="80">0</span
+              ><span class="counter-plus">+</span>
+            </div>
+            <div class="lbl">Países com Presença</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section id="mapa">
+      <div class="section-inner">
+        <div data-aos="fade-up">
+          <div class="section-label">
+            <i class="fa-solid fa-earth-americas mr-2"></i>Presença Global
+          </div>
+          <h2 class="section-title">
+            Lassalistas no <span class="gold">Mundo</span>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="section-sub">
+            Em mais de 80 países, os Irmãos das Escolas Cristãs e seus
+            colaboradores transformam comunidades através da educação.
+          </p>
+        </div>
+        <div class="world-map-wrap">
+  <div id="mapDiv" style="width:100%;height:420px;position:relative;"></div>
+  <div id="countryInfo" class="country-info"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script>
+  (async function() {
+    const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+
+    const lasalleCountries = new Set([
+      32,36,40,56,68,76,100,116,120,124,152,170,188,192,196,
+      208,214,218,222,231,246,250,276,288,300,320,332,340,356,
+      360,364,372,380,388,392,400,404,410,422,442,446,458,484,
+      504,528,558,566,586,604,608,616,630,642,646,682,710,
+      716,724,740,752,756,764,780,788,792,800,804,826,840,
+      858,862,876,891,704,012
+    ]);
+
+    const regionOf = {
+      32:'sulamerica',36:'oceania',40:'europa',56:'europa',
+      68:'sulamerica',76:'sulamerica',100:'europa',116:'asia',
+      120:'africa',124:'americas',152:'sulamerica',170:'sulamerica',
+      188:'americas',192:'americas',196:'europa',208:'europa',
+      214:'americas',218:'sulamerica',222:'americas',231:'africa',
+      246:'europa',250:'europa',276:'europa',288:'africa',
+      300:'europa',320:'americas',332:'americas',340:'americas',
+      356:'asia',360:'asia',364:'asia',372:'europa',380:'europa',
+      388:'americas',392:'asia',400:'asia',404:'africa',410:'asia',
+      422:'asia',442:'europa',446:'asia',458:'asia',484:'americas',
+      504:'africa',528:'europa',558:'americas',566:'africa',
+      586:'asia',604:'sulamerica',608:'asia',616:'europa',
+      630:'americas',642:'europa',646:'africa',682:'asia',
+      710:'africa',716:'africa',724:'europa',740:'sulamerica',
+      752:'europa',756:'europa',764:'asia',780:'americas',
+      788:'africa',792:'asia',800:'africa',804:'europa',826:'europa',
+      840:'americas',858:'sulamerica',862:'sulamerica',876:'oceania',
+      891:'europa',704:'asia',12:'africa'
+    };
+
+    const w = document.getElementById('mapDiv').offsetWidth || 860;
+    const h = 420;
+    const svg = d3.select('#mapDiv').append('svg')
+      .attr('width','100%').attr('height',h)
+      .attr('viewBox',`0 0 ${w} ${h}`);
+
+    const projection = d3.geoNaturalEarth1()
+      .scale(w/6.2)
+      .translate([w/2, h/2]);
+
+    const path = d3.geoPath().projection(projection);
+    const countries = topojson.feature(world, world.objects.countries);
+
+    // fundo oceano
+    svg.append('rect')
+      .attr('width',w).attr('height',h)
+      .attr('fill','rgba(0,30,70,0.0)');
+
+    // países sem presença
+    svg.append('g').selectAll('path')
+      .data(countries.features.filter(d => !lasalleCountries.has(+d.id)))
+      .join('path')
+      .attr('d', path)
+      .attr('fill','rgba(255,255,255,0.07)')
+      .attr('stroke','rgba(255,255,255,0.12)')
+      .attr('stroke-width',0.5);
+
+    // países com presença lassalista
+    svg.append('g').selectAll('path')
+      .data(countries.features.filter(d => lasalleCountries.has(+d.id)))
+      .join('path')
+      .attr('d', path)
+      .attr('fill','rgba(212,175,55,0.55)')
+      .attr('stroke','rgba(212,175,55,0.9)')
+      .attr('stroke-width',0.6)
+      .style('cursor','pointer')
+      .on('mouseover', function() {
+        d3.select(this).attr('fill','rgba(212,175,55,0.85)');
+      })
+      .on('mouseout', function() {
+        d3.select(this).attr('fill','rgba(212,175,55,0.55)');
+      })
+      .on('click', function(event, d) {
+        const region = regionOf[+d.id] || 'americas';
+        showMapInfo(region);
+      });
+
+    // graticule
+    svg.append('path')
+      .datum(d3.geoGraticule()())
+      .attr('d', path)
+      .attr('fill','none')
+      .attr('stroke','rgba(255,255,255,0.04)')
+      .attr('stroke-width',0.5);
+
+    // esfera / borda
+    svg.append('path')
+      .datum({type:'Sphere'})
+      .attr('d', path)
+      .attr('fill','none')
+      .attr('stroke','rgba(255,255,255,0.1)')
+      .attr('stroke-width',1);
+
+  })();
+  </script>
+ </div>
+          <div class="map-legend">
+            <div class="map-legend-item">
+              <div class="legend-dot"></div>
+              Presença Lassalista Ativa
+            </div>
+            <div
+              class="map-legend-item"
+              style="color: rgba(255, 255, 255, 0.5)"
+            >
+              Fonte: ISFED / De La Salle Brothers — 2024
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="depo-bg">
+      <div class="section-inner">
+        <div data-aos="fade-up" style="text-align: center">
+          <div
+            class="section-label"
+            style="justify-content: center; display: flex"
+          >
+            <i class="fa-solid fa-comment-quote mr-2"></i>Vozes Reais
+          </div>
+          <h2 class="section-title" style="text-align: center">
+            Histórias que <span class="gold">Inspiram</span>
+          </h2>
+          <div class="gold-line" style="margin: 1rem auto"></div>
+        </div>
+        <div class="swiper swiper-depo" data-aos="fade-up">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="depo-card">
+                <div class="depo-quote">"</div>
+                <p class="depo-text">
+                  A oficina de informática me ajudou a conseguir meu primeiro
+                  emprego. Hoje trabalho como assistente administrativo e pude
+                  mudar a vida da minha família inteira. Gratidão eterna ao
+                  Lasalianismo.
+                </p>
+                <div class="depo-author">
+                  <div
+                    class="depo-avatar"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--blue),
+                        var(--blue-light)
+                      );
+                    "
+                  >
+                    LM
+                  </div>
+                  <div>
+                    <div class="depo-name">Lucas Mendes</div>
+                    <div class="depo-role">
+                      Oficina de Informática · Turma 2022
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="depo-card">
+                <div class="depo-quote">"</div>
+                <p class="depo-text">
+                  O reforço escolar mudou completamente minha trajetória
+                  acadêmica. Eu estava prestes a abandonar a escola quando
+                  encontrei esse projeto. Hoje estou na faculdade de Engenharia.
+                </p>
+                <div class="depo-author">
+                  <div
+                    class="depo-avatar"
+                    style="
+                      background: linear-gradient(135deg, #065f46, #059669);
+                    "
+                  >
+                    AS
+                  </div>
+                  <div>
+                    <div class="depo-name">Ana Souza</div>
+                    <div class="depo-role">Reforço Escolar · Turma 2021</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="depo-card">
+                <div class="depo-quote">"</div>
+                <p class="depo-text">
+                  A oficina de costura me deu autonomia financeira. Abri meu
+                  próprio ateliê e hoje emprego outras três pessoas da minha
+                  comunidade. O projeto não me deu um peixe, me ensinou a
+                  pescar.
+                </p>
+                <div class="depo-author">
+                  <div
+                    class="depo-avatar"
+                    style="
+                      background: linear-gradient(135deg, #7c3aed, #a855f7);
+                    "
+                  >
+                    MO
+                  </div>
+                  <div>
+                    <div class="depo-name">Maria Oliveira</div>
+                    <div class="depo-role">
+                      Oficina Profissionalizante · Turma 2020
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="depo-card">
+                <div class="depo-quote">"</div>
+                <p class="depo-text">
+                  Como voluntário, aprendi que ensinar é também aprender. O
+                  contato com as crianças das comunidades me transformou como
+                  pessoa e futura profissional de educação.
+                </p>
+                <div class="depo-author">
+                  <div
+                    class="depo-avatar"
+                    style="
+                      background: linear-gradient(135deg, #c2410c, #ea580c);
+                    "
+                  >
+                    RF
+                  </div>
+                  <div>
+                    <div class="depo-name">Rodrigo Ferreira</div>
+                    <div class="depo-role">
+                      Voluntário Universitário · desde 2023
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="depo-card">
+                <div class="depo-quote">"</div>
+                <p class="depo-text">
+                  Tinha 58 anos quando aprendi a usar o computador no projeto de
+                  inclusão digital. Hoje me comunico com meus netos por
+                  videochamada e até vendo artesanato pelas redes sociais!
+                </p>
+                <div class="depo-author">
+                  <div
+                    class="depo-avatar"
+                    style="
+                      background: linear-gradient(135deg, #be185d, #ec4899);
+                    "
+                  >
+                    DC
+                  </div>
+                  <div>
+                    <div class="depo-name">Dona Carminha</div>
+                    <div class="depo-role">
+                      Inclusão Digital · Turma Sênior 2023
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" style="background: var(--gray)">
+      <div class="section-inner">
+        <div data-aos="fade-up" style="text-align: center">
+          <div
+            class="section-label"
+            style="justify-content: center; display: flex"
+          >
+            <i class="fa-solid fa-question-circle mr-2"></i>Teste seu
+            Conhecimento
+          </div>
+          <h2 class="section-title" style="text-align: center">
+            Quiz <span class="gold">Lassalista</span>
+          </h2>
+          <div class="gold-line" style="margin: 1rem auto"></div>
+          <p class="section-sub" style="text-align: center; margin: 0 auto">
+            Responda às perguntas e receba seu certificado simbólico de
+            participação!
+          </p>
+        </div>
+        <div class="quiz-card" data-aos="zoom-in">
+          <div id="quizMain">
+            <div class="quiz-progress-bar">
+              <div
+                class="quiz-progress-fill"
+                id="quizFill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div class="quiz-counter" id="quizCounter">Pergunta 1 de 6</div>
+            <div class="quiz-q" id="quizQ"></div>
+            <div class="quiz-options" id="quizOpts"></div>
+            <div class="quiz-nav">
+              <span></span>
+              <button
+                class="btn-quiz"
+                id="quizNextBtn"
+                onclick="nextQuestion()"
+                style="display: none"
+              >
+                Próxima <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="quiz-result" id="quizResult">
+            <div class="score-circle" id="scoreCircle">
+              <span id="scoreText">0</span><span>pontos</span>
+            </div>
+            <h3
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                color: var(--blue);
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+              "
+              id="resultTitle"
+            ></h3>
+            <p style="color: #64748b; margin-bottom: 1.5rem" id="resultMsg"></p>
+            <div class="certificate">
+              <div class="cert-title">🏆 Certificado de Participação</div>
+              <div style="font-size: 0.95rem; margin: 0.75rem 0; opacity: 0.9">
+                Este certifica que você completou com sucesso o
+              </div>
+              <div
+                style="
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  color: var(--gold-light);
+                  margin: 0.5rem 0;
+                "
+              >
+                Quiz Lasalianismo em Ação
+              </div>
+              <div class="cert-sub" id="certDate"></div>
+            </div>
+            <button
+              class="btn-quiz"
+              onclick="restartQuiz()"
+              style="margin-top: 1.5rem"
+            >
+              <i class="fa-solid fa-rotate"></i> Jogar Novamente
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="gallery-bg">
+      <div class="section-inner">
+        <div data-aos="fade-up">
+          <div class="section-label">
+            <i class="fa-solid fa-images mr-2"></i>Momentos Reais
+          </div>
+          <h2 class="section-title">
+            Galeria de <span class="gold">Transformação</span>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="section-sub">
+            Imagens que capturam a essência do trabalho lassalista em ação nas
+            comunidades.
+          </p>
+        </div>
+        <div class="gallery-grid" data-aos="fade-up">
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #003366, #1a6bbf)"
+            onclick="
+              openLightbox(
+                'Oficina de Informática',
+                'Jovens participando das aulas de computação no centro comunitário parceiro.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-laptop-code"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Oficina de Informática</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #065f46, #10b981)"
+            onclick="
+              openLightbox(
+                'Reforço Escolar',
+                'Voluntários universitários apoiando crianças nas tarefas e dificuldades escolares.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-chalkboard-teacher"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Reforço Escolar</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #7c3aed, #c084fc)"
+            onclick="
+              openLightbox(
+                'Oficina de Costura',
+                'Mulheres aprendendo técnicas de corte e costura para autonomia financeira.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-scissors"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Oficina de Costura</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #c2410c, #f97316)"
+            onclick="
+              openLightbox(
+                'Campanha Solidária',
+                'Arrecadação de alimentos e roupas para famílias em situação de vulnerabilidade.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-box-heart"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Campanha Solidária</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #0e7490, #22d3ee)"
+            onclick="
+              openLightbox(
+                'Inclusão Digital Sênior',
+                'Idosos aprendendo a usar smartphones e computadores no projeto de inclusão digital.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-tablet-screen-button"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Inclusão Digital Sênior</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #be185d, #f472b6)"
+            onclick="
+              openLightbox(
+                'Formação de Lideranças',
+                'Jovens em círculo de diálogo desenvolvendo habilidades de liderança e cidadania.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-users-rays"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Formação de Lideranças</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #1d4ed8, #60a5fa)"
+            onclick="
+              openLightbox(
+                'Mutirão Comunitário',
+                'Voluntários trabalhando juntos em ação de limpeza e revitalização de praça pública.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-people-carry-box"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Mutirão Comunitário</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background: linear-gradient(135deg, #064e3b, #34d399)"
+            onclick="
+              openLightbox(
+                'Cerimônia de Formatura',
+                'Celebração de encerramento das oficinas profissionalizantes com entrega de certificados.',
+              )
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+              "
+            >
+              <i
+                class="fa-solid fa-graduation-cap"
+                style="font-size: 3rem; color: rgba(212, 175, 55, 0.6)"
+              ></i>
+              <span
+                style="
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                "
+                >Cerimônia de Formatura</span
+              >
+            </div>
+            <div class="overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i
+              ><span>Ver Detalhes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNILASALLE -->
+    <section id="unilasalle" class="uni-bg">
+      <div class="section-inner">
+        <div data-aos="fade-up" style="text-align: center">
+          <div
+            class="section-label"
+            style="
+              color: var(--gold-light);
+              justify-content: center;
+              display: flex;
+            "
+          >
+            <i class="fa-solid fa-university mr-2"></i>Nossa Instituição
+          </div>
+          <h2 class="section-title" style="color: #fff; text-align: center">
+            UniLaSalle e o <span class="gold">Legado Vivo</span>
+          </h2>
+          <div class="gold-line" style="margin: 1rem auto"></div>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.7);
+              font-size: 1.05rem;
+              max-width: 650px;
+              margin: 0 auto;
+            "
+          >
+            A UniLaSalle mantém acesos os princípios de João Batista de La
+            Salle, formando profissionais técnica e humanamente comprometidos
+            com a transformação da sociedade.
+          </p>
+        </div>
+        <div class="uni-grid" style="margin-top: 3rem">
+          <div class="uni-card" data-aos="fade-up" data-aos-delay="0">
+            <i class="fa-solid fa-medal"></i>
+            <h3>Educação de Qualidade</h3>
+            <p>
+              Cursos reconhecidos com excelência acadêmica, metodologias ativas
+              e corpo docente qualificado comprometido com a formação integral
+              do aluno.
+            </p>
+          </div>
+          <div class="uni-card" data-aos="fade-up" data-aos-delay="80">
+            <i class="fa-solid fa-earth-americas"></i>
+            <h3>Responsabilidade Social</h3>
+            <p>
+              Projetos de extensão universitária que conectam o conhecimento
+              acadêmico às necessidades reais das comunidades ao redor da
+              universidade.
+            </p>
+          </div>
+          <div class="uni-card" data-aos="fade-up" data-aos-delay="160">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <h3>Formação Ética</h3>
+            <p>
+              Desenvolvimento de valores humanos, senso crítico e
+              responsabilidade cidadã integrados à grade curricular de todos os
+              cursos.
+            </p>
+          </div>
+          <div class="uni-card" data-aos="fade-up" data-aos-delay="240">
+            <i class="fa-solid fa-rocket"></i>
+            <h3>Transformação da Sociedade</h3>
+            <p>
+              Incubação de startups sociais, pesquisas aplicadas e parcerias com
+              ONGs para gerar impacto real e mensurável na vida das pessoas.
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 3rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+          "
+          data-aos="zoom-in"
+        >
+          <i
+            class="fa-solid fa-star"
+            style="
+              color: var(--gold);
+              font-size: 2rem;
+              margin-bottom: 1rem;
+              display: block;
+            "
+          ></i>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.85);
+              font-size: 1.1rem;
+              line-height: 1.7;
+              max-width: 650px;
+              margin: 0 auto;
+              font-style: italic;
+            "
+          >
+            "Pertencemos a uma tradição educativa que tem mais de 370 anos — uma
+            tradição que coloca o ser humano no centro, que acredita que toda
+            pessoa, independentemente de sua origem, merece a melhor educação
+            possível."
+          </p>
+          <p
+            style="
+              color: var(--gold);
+              font-weight: 700;
+              margin-top: 1rem;
+              font-size: 0.9rem;
+            "
+          >
+            — Missão UniLaSalle
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-quote">
+          <p>
+            "Transformar vidas por meio da educação é o maior legado de João
+            Batista de La Salle."
+          </p>
+        </div>
+        <div class="footer-grid" style="padding-top: 3rem">
+          <div class="footer-brand">
+            <a
+              href="#hero"
+              class="nav-logo"
+              style="margin-bottom: 0.5rem; display: inline-flex"
+            >
+              <div class="nav-logo-icon"><i class="fa-solid fa-cross"></i></div>
+              <div class="nav-logo-text" style="margin-left: 0.75rem">
+                Lasalianismo<span>em ação</span>
+              </div>
+            </a>
+            <p>
+              Projeto acadêmico desenvolvido para demonstrar como os princípios
+              lassalistas transformam comunidades através de projetos sociais,
+              educação e serviço.
+            </p>
+            <div class="footer-social">
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="#historia">História</a>
+            <a href="#valores">Valores</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#impacto">Impacto</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#quiz">Quiz</a>
+          </div>
+          <div class="footer-col">
+            <h4>Projetos</h4>
+            <a href="#">Oficina de Informática</a>
+            <a href="#">Reforço Escolar</a>
+            <a href="#">Oficinas Profissionalizantes</a>
+            <a href="#">Ações Comunitárias</a>
+            <a href="#">Inclusão Digital</a>
+            <a href="#">Desenvolvimento Humano</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <a href="#"
+              ><i class="fa-solid fa-envelope mr-1"></i>
+              lasalianismo@unilasalle.edu.br</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-phone mr-1"></i> (21) 9711-58183</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-map-pin mr-1"></i> Rio de Janeiro,
+              Brasil</a
+            >
+            <div
+              style="
+                margin-top: 1rem;
+                padding: 1rem;
+                background: rgba(212, 175, 55, 0.1);
+                border-radius: 10px;
+                border: 1px solid rgba(212, 175, 55, 0.2);
+              "
+            >
+              <p
+                style="
+                  color: rgba(255, 255, 255, 0.5);
+                  font-size: 0.75rem;
+                  line-height: 1.5;
+                "
+              >
+                Créditos Acadêmicos<br /><span style="color: var(--gold)"
+                  >UniLaSalle Rio de Janeiro</span
+                ><br />Sistemas de Informação · 2026
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom" style="flex-wrap: wrap; gap: 1rem">
+          <p>© 2025 Lasalianismo em Ação — Projeto Acadêmico · UniLaSalle</p>
+          <p style="color: rgba(255, 255, 255, 0.25)">
+            Desenvolvido com <span style="color: var(--gold)">♥</span> em
+            homenagem a São João Batista de La Salle
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <div class="lightbox-inner" id="lightboxContent">
+        <button class="lightbox-close" onclick="closeLightbox()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div
+          id="lightboxBody"
+          style="
+            padding: 3rem;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <i id="lightboxIcon" style="font-size: 5rem; margin-bottom: 1rem"></i>
+        </div>
+        <div class="lightbox-caption">
+          <h3
+            id="lightboxTitle"
+            style="color: #fff; font-weight: 700; margin-bottom: 0.5rem"
+          ></h3>
+          <p id="lightboxDesc"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 id="modalTitle"></h3>
+        <div class="gold-line" style="margin: 0.75rem 0 1rem"></div>
+        <p id="modalBody"></p>
+      </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button
+      id="back-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // === INIT ===
+      AOS.init({ duration: 700, once: true, offset: 80 });
+
+      // === NAVBAR SCROLL ===
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 60);
+        document
+          .getElementById("back-top")
+          .classList.toggle("visible", window.scrollY > 400);
+      });
+
+      // === MOBILE MENU ===
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
+
+      // === PARTICLES ===
+      const container = document.getElementById("particles");
+      for (let i = 0; i < 18; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        const size = Math.random() * 8 + 3;
+        p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 100}%;animation-duration:${8 + Math.random() * 12}s;animation-delay:${Math.random() * 10}s;`;
+        container.appendChild(p);
+      }
+
+      // === VALUES TOGGLE ===
+      function toggleValue(el) {
+        el.classList.toggle("active");
+      }
+
+      // === COUNTER ANIMATION ===
+      function animateCounters() {
+        document.querySelectorAll(".count-up").forEach((el) => {
+          const target = parseInt(el.dataset.target);
+          const dur = 2000;
+          const step = target / (dur / 16);
+          let cur = 0;
+          const timer = setInterval(() => {
+            cur = Math.min(cur + step, target);
+            el.textContent = Math.floor(cur).toLocaleString("pt-BR");
+            if (cur >= target) clearInterval(timer);
+          }, 16);
+        });
+      }
+      const counterSection = document.getElementById("impacto");
+      let counted = false;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && !counted) {
+            counted = true;
+            animateCounters();
+          }
+        },
+        { threshold: 0.3 },
+      );
+      observer.observe(counterSection);
+
+      // === MAP ===
+      const mapData = {
+        americas: {
+          title: "🌎 América do Norte",
+          text: "Presença em EUA, Canadá, México e países da América Central. Mais de 200 escolas e centros comunitários atendem comunidades imigrantes e populações em vulnerabilidade.",
+        },
+        sulamerica: {
+          title: "🌎 América do Sul",
+          text: "Brasil, Argentina, Colômbia, Peru e Chile contam com forte presença lassalista. A rede inclui universidades, colégios e projetos de extensão social em áreas rurais e periféricas.",
+        },
+        europa: {
+          title: "🌍 Europa",
+          text: "Berço do Lasalianismo, a Europa — especialmente França, Espanha e Bélgica — mantém a tradição educativa original aliada à inovação pedagógica contemporânea.",
+        },
+        africa: {
+          title: "🌍 África",
+          text: "Com presença em mais de 30 países africanos, o Lasalianismo é um dos maiores agentes de educação do continente, atendendo crianças em regiões remotas sem acesso a escolas públicas.",
+        },
+        asia: {
+          title: "🌏 Ásia",
+          text: "Filipinas, Índia, Japão, Paquistão e mais de 20 países asiáticos têm escolas lassalistas. Manila é sede de um dos maiores complexos educacionais lassalistas do mundo.",
+        },
+        oceania: {
+          title: "🌏 Oceania",
+          text: "Austrália, Papua Nova Guiné e ilhas do Pacífico Sul contam com missões educativas lassalistas que atendem populações indígenas e comunidades insulares isoladas.",
+        },
+      };
+      function showMapInfo(region) {
+        const info = mapData[region];
+        const el = document.getElementById("countryInfo");
+        el.innerHTML = `<h4>${info.title}</h4><p>${info.text}</p>`;
+        el.classList.add("active");
+      }
+
+      // === SWIPER DEPOIMENTOS ===
+      new Swiper(".swiper-depo", {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 2 } },
+      });
+
+      // === QUIZ ===
+      const questions = [
+        {
+          q: "Em que ano nasceu João Batista de La Salle?",
+          opts: ["1641", "1651", "1661", "1671"],
+          correct: 1,
+          exp: "La Salle nasceu em 30 de abril de 1651, em Reims, França.",
+        },
+        {
+          q: "Qual congregação religiosa foi fundada por João Batista de La Salle?",
+          opts: [
+            "Jesuítas",
+            "Franciscanos",
+            "Irmãos das Escolas Cristãs",
+            "Salesianos",
+          ],
+          correct: 2,
+          exp: "Os Irmãos das Escolas Cristãs foram fundados por La Salle em 1680.",
+        },
+        {
+          q: "Qual foi a grande inovação pedagógica introduzida por La Salle?",
+          opts: [
+            "Ensino individual",
+            "Ensino simultâneo (todos juntos)",
+            "Ensino à distância",
+            "Ensino por correspondência",
+          ],
+          correct: 1,
+          exp: "O ensino simultâneo — onde toda a classe aprende o mesmo conteúdo ao mesmo tempo — foi uma revolução para a época.",
+        },
+        {
+          q: "Quantos países têm presença lassalista no mundo?",
+          opts: ["Mais de 20", "Mais de 40", "Mais de 60", "Mais de 80"],
+          correct: 3,
+          exp: "A rede lassalista está presente em mais de 80 países em todos os continentes.",
+        },
+        {
+          q: "Qual é um dos valores centrais do Lasalianismo?",
+          opts: [
+            "Competitividade",
+            "Fraternidade",
+            "Individualismo",
+            "Elitismo",
+          ],
+          correct: 1,
+          exp: "A fraternidade — o cuidado mútuo e a união entre membros da comunidade — é um valor central do Lasalianismo.",
+        },
+        {
+          q: "Em que ano La Salle foi proclamado Patrono dos Educadores pelo Papa Pio XII?",
+          opts: ["1900", "1920", "1940", "1950"],
+          correct: 3,
+          exp: "Em 1950, o Papa Pio XII proclamou João Batista de La Salle Patrono Universal dos Educadores.",
+        },
+      ];
+      let qi = 0,
+        score = 0,
+        answered = false;
+
+      function renderQuestion() {
+        const q = questions[qi];
+        document.getElementById("quizCounter").textContent =
+          `Pergunta ${qi + 1} de ${questions.length}`;
+        document.getElementById("quizFill").style.width =
+          `${(qi / questions.length) * 100}%`;
+        document.getElementById("quizQ").textContent = q.q;
+        const opts = document.getElementById("quizOpts");
+        const letters = ["A", "B", "C", "D"];
+        opts.innerHTML = q.opts
+          .map(
+            (o, i) => `
+    <button class="quiz-opt" onclick="selectOpt(this,${i})">
+      <span class="opt-letter">${letters[i]}</span> ${o}
+    </button>`,
+          )
+          .join("");
+        document.getElementById("quizNextBtn").style.display = "none";
+        answered = false;
+      }
+
+      function selectOpt(el, idx) {
+        if (answered) return;
+        answered = true;
+        const q = questions[qi];
+        const opts = document.querySelectorAll(".quiz-opt");
+        opts[q.correct].classList.add("correct");
+        if (idx === q.correct) {
+          score++;
+        } else {
+          el.classList.add("wrong");
+        }
+        opts.forEach((o) => (o.disabled = true));
+        document.getElementById("quizNextBtn").style.display = "inline-flex";
+      }
+
+      function nextQuestion() {
+        qi++;
+        if (qi < questions.length) {
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }
+
+      function showResult() {
+        document.getElementById("quizFill").style.width = "100%";
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-progress-bar").style.display = "none";
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-counter").style.display = "none";
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-q").style.display = "none";
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-options").style.display = "none";
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-nav").style.display = "none";
+        const res = document.getElementById("quizResult");
+        res.style.display = "block";
+        document.getElementById("scoreText").textContent = score;
+        document
+          .getElementById("scoreCircle")
+          .querySelector("span:last-child").textContent =
+          `de ${questions.length}`;
+        const pct = score / questions.length;
+        let title, msg;
+        if (pct === 1) {
+          title = "🏆 Perfeito!";
+          msg = "Excelente! Você domina os princípios lassalistas. Parabéns!";
+        } else if (pct >= 0.7) {
+          title = "✨ Muito Bem!";
+          msg = "Ótimo resultado! Você conhece bem o Lasalianismo.";
+        } else if (pct >= 0.5) {
+          title = "👍 Bom Trabalho!";
+          msg =
+            "Você foi bem! Explore mais o site para aprofundar seus conhecimentos.";
+        } else {
+          title = "📚 Continue Aprendendo!";
+          msg =
+            "Navegue pelo site e descubra mais sobre esse legado transformador.";
+        }
+        document.getElementById("resultTitle").textContent = title;
+        document.getElementById("resultMsg").textContent = msg;
+        document.getElementById("certDate").textContent =
+          new Date().toLocaleDateString("pt-BR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          });
+      }
+
+      function restartQuiz() {
+        qi = 0;
+        score = 0;
+        answered = false;
+        document.getElementById("quizResult").style.display = "none";
+        const main = document.getElementById("quizMain");
+        main.querySelectorAll("*").forEach((el) => (el.style.display = ""));
+        document
+          .getElementById("quizMain")
+          .querySelector(".quiz-progress-bar").style.display = "";
+        renderQuestion();
+      }
+
+      renderQuestion();
+
+      // === LIGHTBOX ===
+      const bgColors = {
+        "Oficina de Informática": "#003366",
+        "Reforço Escolar": "#065f46",
+        "Oficina de Costura": "#7c3aed",
+        "Campanha Solidária": "#c2410c",
+        "Inclusão Digital Sênior": "#0e7490",
+        "Formação de Lideranças": "#be185d",
+        "Mutirão Comunitário": "#1d4ed8",
+        "Cerimônia de Formatura": "#064e3b",
+      };
+      const bgIcons = {
+        "Oficina de Informática": "fa-laptop-code",
+        "Reforço Escolar": "fa-chalkboard-teacher",
+        "Oficina de Costura": "fa-scissors",
+        "Campanha Solidária": "fa-box-heart",
+        "Inclusão Digital Sênior": "fa-tablet-screen-button",
+        "Formação de Lideranças": "fa-users-rays",
+        "Mutirão Comunitário": "fa-people-carry-box",
+        "Cerimônia de Formatura": "fa-graduation-cap",
+      };
+      function openLightbox(title, desc) {
+        const lb = document.getElementById("lightbox");
+        const body = document.getElementById("lightboxBody");
+        const color = bgColors[title] || "#003366";
+        const icon = bgIcons[title] || "fa-image";
+        body.style.background = `linear-gradient(135deg, ${color}, ${color}cc)`;
+        body.innerHTML = `<i class="fa-solid ${icon}" style="font-size:6rem;color:rgba(212,175,55,0.7);"></i>`;
+        document.getElementById("lightboxTitle").textContent = title;
+        document.getElementById("lightboxDesc").textContent = desc;
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLightbox(e) {
+        if (
+          !e ||
+          e.target === document.getElementById("lightbox") ||
+          e.currentTarget.tagName === "BUTTON"
+        ) {
+          document.getElementById("lightbox").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      }
+
+      // === MODAL ===
+      function openModal(title, body) {
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalBody").textContent = body;
+        document.getElementById("modalOverlay").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal(e) {
+        if (
+          !e ||
+          e.target === document.getElementById("modalOverlay") ||
+          e.currentTarget.tagName === "BUTTON"
+        ) {
+          document.getElementById("modalOverlay").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      }
+    </script>
+  </body>
+</html>
